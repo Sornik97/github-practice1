@@ -2,7 +2,7 @@ name: Deployment ex 1
 on: push
 jobs:
   test:
-    runs_on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: checkout repo
         uses: actions/checkout@v4
@@ -18,7 +18,7 @@ jobs:
         run: npm test
   build_and_deploy:
     needs: test
-    runs_on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: checkout repo
         uses: actions/checkout@v4
