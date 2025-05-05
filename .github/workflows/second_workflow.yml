@@ -1,10 +1,8 @@
-name: Workflow for issue event
-on:
-  issues:
-    types: [opened, edited, milestoned, deleted]
+name: Handle issues
+on: issues
 jobs:
   info:
     runs-on: ubuntu-latest
-      steps:
-        - name: Output Github context
-          run: echo "${{ toJSON(github) }}" 
+    steps:
+      - name: Output Github context
+        run: echo "${{ toJSON(github.event) }}" 
