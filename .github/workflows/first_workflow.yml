@@ -1,0 +1,36 @@
+name: Deployment ex 1
+on: push
+jobs:
+  test:
+    runs_on: ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v4
+      - name: install node.js
+        uses: actions/setup-node@v3
+          with:
+            node-version: '18'
+      - name: install dependecies
+        run: npm ci
+      - name: run lint 
+        run: npm run lint
+      - name: run test
+        run: npm test
+  build_and_deploy:
+    needs: test
+    runs_on: ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v4
+      - name: set up node.js
+        uses: actions/setup-node@v3
+          with:
+            node-version: '18'
+      - name: install dependencies
+        run: npm ci
+      - name: build the code
+        run: npm run build
+      - name: Deploy code
+        run: echo "Deploying... maybe later"
+      
+       
