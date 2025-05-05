@@ -8,8 +8,8 @@ jobs:
         uses: actions/checkout@v4
       - name: install node.js
         uses: actions/setup-node@v3
-          with:
-            node-version: '18'
+        with:
+          node-version: '18'
       - name: install dependecies
         run: npm ci
       - name: run lint 
@@ -24,8 +24,8 @@ jobs:
         uses: actions/checkout@v4
       - name: set up node.js
         uses: actions/setup-node@v3
-          with:
-            node-version: '18'
+        with:
+          node-version: '18'
       - name: install dependencies
         run: npm ci
       - name: build the code
